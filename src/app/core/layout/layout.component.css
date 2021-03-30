@@ -1,0 +1,51 @@
+.header {
+  height: 75px;
+  width: 100vw;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  padding-right: 15px;
+}
+
+.text {
+  font-size: 14px;
+  color: white;
+  margin: auto 10px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+
+.text:hover {
+  color: black;
+}
+
+.active {
+  color: black;
+}
+
+.footer {
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.made_by {
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  margin: auto 50px;
+  color: white;
+}
