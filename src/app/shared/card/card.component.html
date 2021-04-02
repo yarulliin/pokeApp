@@ -1,1 +1,5 @@
-<p>card works!</p>
+<div class="card" bg-change>
+  <img class="img" [src]="pokemon?.front_default">
+  <p class="text">{{ pokemon?.name }}</p>
+  <button class="btn" (click)="toFav()">В избранное</button>
+</div>

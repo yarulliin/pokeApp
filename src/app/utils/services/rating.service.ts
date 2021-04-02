@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RatingService {
-  counter = 0;
+  counter: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  constructor() { }
-
-  plus(): number {
-    return this.counter++;
+  plus(): void {
+    const temp = this.counter.value + 1;
+    this.counter.next(temp);
   }
 
-  minus(): number {
-    return this.counter--;
+  minus(): void {
+    const temp = this.counter.value - 1;
+    this.counter.next(temp);
   }
 }

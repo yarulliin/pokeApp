@@ -12,12 +12,12 @@ const routes: Routes = [
         loadChildren: () => import('../pages/homepage/homepage.module').then(m => m.HomepageModule)
       },
       {
-        path: '',
-        redirectTo: '/home'
-      },
-      {
         path: 'favorites',
         loadChildren: () => import('../pages/favorites/favorites.module').then(m => m.FavoritesModule)
+      },
+      {
+        path: '',
+        redirectTo: '/home'
       }
     ]
   }

@@ -3,7 +3,7 @@ export interface IPokemon {
   front_default: string;
 }
 
-export interface ITest {
+export interface IPokeUrl {
   name: string;
   url: string;
 }
@@ -15,5 +15,5 @@ export interface IPokeInfo {
 
 export interface IPokemonListResult {
   name: string;
-  results: ITest[];
+  results: IPokeUrl[];
 }

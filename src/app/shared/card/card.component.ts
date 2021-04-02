@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IPokemon} from '../../utils/interfaces/poke.interfaces';
+import {LocalStorageService} from '../../utils/services/local-storage.service';
 
 @Component({
   selector: 'app-card',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  @Input() pokemon: IPokemon;
+
+  constructor(private storage: LocalStorageService) { }
 
   ngOnInit(): void {
   }
 
+  toFav(): void {
+    this.storage.setPoke(this.pokemon);
+  }
 }
