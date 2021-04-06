@@ -1,17 +1,22 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, OnInit} from '@angular/core';
 import {IPokemon} from '../../utils/interfaces/poke.interfaces';
 import {RequestService} from '../../utils/services/request.service';
 import {mergeMap} from 'rxjs/operators';
+import {timer} from 'rxjs';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  styleUrls: ['./homepage.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomepageComponent implements OnInit {
   pokemons: IPokemon[] = [];
 
-  constructor(private request: RequestService) { }
+  constructor(
+    private request: RequestService,
+    private changeDetector: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
     this.initData();
@@ -25,6 +30,9 @@ export class HomepageComponent implements OnInit {
           return this.request.getPokemon(pokemonID);
         })
       )
-      .subscribe(data => this.pokemons.push(data));
+      .subscribe(data => {
+        this.pokemons = [...this.pokemons, data];
+        this.changeDetector.markForCheck();
+      });
   }
 }

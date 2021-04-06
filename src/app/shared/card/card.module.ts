@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import {CardComponent} from '../../shared/card/card.component';
-import {RatingService} from '../../utils/services/rating.service';
 import {BackgroundChangeModule} from '../../utils/directives/background.change.module';
+import {LikesModule} from '../../utils/pipes/likes.module';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
-    CardComponent,
+    CardComponent
   ],
   exports: [CardComponent],
   imports: [
-    BackgroundChangeModule
+    BackgroundChangeModule,
+    LikesModule,
+    CommonModule
   ],
-  providers: [RatingService]
+  providers: []
 })
 export class CardModule { }

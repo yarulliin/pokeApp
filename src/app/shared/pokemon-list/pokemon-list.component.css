@@ -2,3 +2,19 @@
   display: flex;
   margin: 85px auto;
 }
+
+.btn {
+  border: 1px solid black;
+  background-color: transparent;
+  width: 100px;
+  display: flex;
+  margin: auto;
+  margin-top: 5px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: darkgrey;
+}

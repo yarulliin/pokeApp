@@ -5,13 +5,19 @@ import {BehaviorSubject} from 'rxjs';
 export class RatingService {
   counter: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  plus(): void {
-    const temp = this.counter.value + 1;
-    this.counter.next(temp);
+  constructor() {
+    console.log(4);
   }
 
-  minus(): void {
+  increment(): void {
+    const temp = this.counter.value + 1;
+    this.counter.next(temp);
+    console.log(2);
+  }
+
+  decrement(): void {
     const temp = this.counter.value - 1;
     this.counter.next(temp);
+    console.log(3);
   }
 }

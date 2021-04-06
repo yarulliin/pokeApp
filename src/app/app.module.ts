@@ -18,7 +18,11 @@ import {RequestInterceptor} from './shared/interceptors/request.interceptor';
     HttpClientModule
   ],
   providers: [
-
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

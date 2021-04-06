@@ -30,31 +30,17 @@ export class LocalStorageService {
     }
   }
 
-  removePoke(name: string): void {
+  removePoke(poke: IPokemon): void {
     const storage = localStorage.getItem('pokemons');
     if (storage) {
       const pokemons = JSON.parse(storage);
-
-      pokemons.map((el: IPokemon, i: number) => {
-        if (el.name === name) {
-          pokemons.splice(i, 1);
-        }
-      });
-
-      //filter
-      localStorage.setItem('pokemons', JSON.stringify([pokemons]));
+      const res = pokemons.filter((el: IPokemon) => el.name !== poke.name);
+      localStorage.setItem('pokemons', JSON.stringify([...res]));
     }
   }
 
   private findPoke(poke: IPokemon): boolean {
     const storage = localStorage.getItem('pokemons');
-    if (storage) {
-      return JSON.parse(storage).find((el: IPokemon) => el.name === poke.name);
-    }
-    else {
-      return false;
-    }
-
-    // тернарный оператор
+    return storage ? JSON.parse(storage).find((el: IPokemon) => el.name === poke.name) : false;
   }
 }

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import {from, Observable} from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
 import {IPokeInfo, IPokemon, IPokemonListResult, IPokeUrl} from '../interfaces/poke.interfaces';
-import {HomepageModule} from '../../pages/homepage/homepage.module';
 
 @Injectable()
 export class RequestService {

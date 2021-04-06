@@ -3,22 +3,7 @@
   width: 150px;
   margin: 5px;
   padding: 10px;
-}
-
-.btn {
-  border: 1px solid black;
-  background-color: transparent;
-  width: 100px;
-  height: 25px;
-  display: flex;
-  margin: auto;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: darkgrey;
+  height: auto;
 }
 
 .text {
@@ -29,4 +14,24 @@
 .img {
   display: flex;
   margin: auto;
+}
+
+.likes {
+  display: flex;
+  justify-content: center;
+}
+
+.like {
+  border: 1px solid black;
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  margin: auto;
+}
+
+.counter {
+  font-size: 14px;
 }

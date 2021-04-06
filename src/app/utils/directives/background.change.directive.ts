@@ -17,5 +17,3 @@ export class BackgroundChangeDirective {
     return Math.round(randomNumber);
   }
 }
-
-// Оберунть в модуль
