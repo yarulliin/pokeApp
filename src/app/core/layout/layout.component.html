@@ -1,12 +1,25 @@
-<div class="header">
+<mat-toolbar class="header">
   <div class="nav">
+    <form class="form">
+      <mat-form-field>
+        <mat-label class="input_text">Search...</mat-label>
+        <input class="input_text" type="text" matInput [formControl]="pokeNameFormControl" [errorStateMatcher]="matcher"
+               placeholder="Pikachu">
+        <mat-error class="input_text light" *ngIf="pokeNameFormControl.hasError('minlength') && !pokeNameFormControl.hasError('required')">
+          Please enter a valid pokemon name!
+        </mat-error>
+        <mat-error class="input_text light" *ngIf="pokeNameFormControl.hasError('required')">
+          This field is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
     <a class="text" routerLink="/home" routerLinkActive="active">Homepage</a>
     <a class="text" routerLink="/favorites" routerLinkActive="active">Favorites</a>
   </div>
-</div>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
 
-<div class="footer">
+<mat-toolbar class="footer">
   <p class="made_by">Made by Rifat Yarullin</p>
-</div>
+</mat-toolbar>

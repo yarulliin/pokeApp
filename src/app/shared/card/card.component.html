@@ -1,10 +1,10 @@
-<div class="card" bg-change>
+<mat-card class="card" bg-change>
   <img class="img" [src]="pokemon?.front_default">
-  <p class="text">{{ pokemon?.name }}</p>
-  <div class="likes">
-    <button class="like" (click)="decrease()">-</button>
+  <mat-card-title class="text">{{pokemon?.name}}</mat-card-title>
+  <mat-card-actions class="likes">
+    <button mat-button (click)="decrease()">-</button>
     <p *ngIf="counter$" class="text counter">{{(counter$ | async) | like}}</p>
-    <button class="like" (click)="increase()">+</button>
-  </div>
+    <button mat-button (click)="increase()">+</button>
+  </mat-card-actions>
   <ng-content></ng-content>
-</div>
+</mat-card>

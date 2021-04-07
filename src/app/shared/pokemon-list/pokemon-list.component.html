@@ -1,6 +1,6 @@
 <div class="list">
   <app-card [pokemon]="poke" *ngFor="let poke of pokemons">
-    <button *ngIf="showFav" class="btn" (click)="toFav(poke)">В избранное</button>
-    <button class="btn" (click)="remove(poke)">Удалить из избранного</button>
+    <button *ngIf="showFav" class="btn" mat-raised-button color="primary" (click)="toFav(poke)">В избранное</button>
+    <button class="btn" mat-stroked-button color="primary" (click)="remove(poke)">Удалить из избранного</button>
   </app-card>
 </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {PokemonListComponent} from './pokemon-list.component';
 import {CardModule} from '../card/card.module';
 import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import {CommonModule} from '@angular/common';
   ],
   imports: [
     CardModule,
-    CommonModule
+    CommonModule,
+    MatButtonModule
   ],
   exports: [PokemonListComponent]
 })

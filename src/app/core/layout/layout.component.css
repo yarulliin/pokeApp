@@ -2,9 +2,6 @@
   height: 75px;
   width: 100vw;
   background-color: red;
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: flex-end;
 }
@@ -15,6 +12,12 @@
   padding-right: 15px;
 }
 
+.form {
+  width: 200px;
+  max-height: 80px;
+  color: white;
+}
+
 .text {
   font-size: 14px;
   color: white;
@@ -22,6 +25,17 @@
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
   text-decoration: none;
+}
+
+.input_text {
+  font-size: 14px;
+  color: white;
+  margin: auto 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.light {
+  font-size: 10px;
 }
 
 .text:hover {
