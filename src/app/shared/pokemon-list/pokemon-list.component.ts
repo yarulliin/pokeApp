@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IPokemon} from '../../utils/interfaces/poke.interfaces';
 import {LocalStorageService} from '../../utils/services/local-storage.service';
+import {PokeSearchService} from '../../utils/services/poke-search.service';
 
 @Component({
   selector: 'app-pokemon-list',

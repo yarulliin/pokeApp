@@ -1,8 +1,9 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnDestroy, OnInit} from '@angular/core';
 import {IPokemon} from '../../utils/interfaces/poke.interfaces';
 import {RequestService} from '../../utils/services/request.service';
-import {mergeMap} from 'rxjs/operators';
-import {timer} from 'rxjs';
+import {mergeMap, takeUntil} from 'rxjs/operators';
+import {Subject, timer} from 'rxjs';
+import {PokeSearchService} from '../../utils/services/poke-search.service';
 
 @Component({
   selector: 'app-homepage',
@@ -10,16 +11,25 @@ import {timer} from 'rxjs';
   styleUrls: ['./homepage.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject();
+
   pokemons: IPokemon[] = [];
 
   constructor(
     private request: RequestService,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    private searchService: PokeSearchService
   ) { }
 
   ngOnInit(): void {
     this.initData();
+  }
+
+  ngOnDestroy(): void {
+    this.searchService.searchValue$.next('');
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   initData(): void {
@@ -34,5 +44,14 @@ export class HomepageComponent implements OnInit {
         this.pokemons = [...this.pokemons, data];
         this.changeDetector.markForCheck();
       });
+
+    this.searchService.searchValue$.pipe(
+      takeUntil(this.destroy$)
+    )
+      .subscribe(poke => {
+      //this.pokemons = this.pokemons.filter(((el: IPokemon) => el.name.toLowerCase().includes(poke.toLowerCase())));
+      this.pokemons = this.searchService.searchPoke(this.pokemons, poke);
+      this.changeDetector.markForCheck();
+    });
   }
 }
